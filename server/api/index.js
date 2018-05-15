@@ -6,7 +6,7 @@ import { searchTweets } from '../..//lib/twitter'
 const router = Router()
 
 router.get('/news', async (req, res, next) => {
-  const {statuses} = await searchTweets('#traP1news', 100)
+  const {statuses} = await searchTweets(`#${req.query.tag}`, 100)
   res.json(statuses.map((status) => {
     const filteredStatus = {}
     const filteredUser = {}
@@ -20,7 +20,7 @@ router.get('/news', async (req, res, next) => {
     filteredStatus.id = referenceStatus.id
     filteredStatus.created_at = referenceStatus.created_at
     filteredStatus.text = referenceStatus.text
-    filteredStatus.media_url = referenceStatus.entities.media ? referenceStatus.entities.media.media_url_https : null
+    filteredStatus.media_url = referenceStatus.entities.media ? referenceStatus.entities.media[0].media_url_https : null
     filteredStatus.user = filteredUser
 
     return filteredStatus

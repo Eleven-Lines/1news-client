@@ -1,9 +1,11 @@
+@import url("https://fonts.googleapis.com/earlyaccess/notosansjapanese.css")
+
 html, body
 {
   background-color: #fff;
   color: #000;
-  letter-spacing: 0.5px;
-  font-family: "Source Sans Pro", Arial, sans-serif;
+  letter-spacing: 0.7px;
+  font-family: "Noto Sans Japanese", Arial, sans-serif;
   height: 100vh;
   margin: 0;
 }
